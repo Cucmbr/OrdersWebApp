@@ -1,0 +1,26 @@
+﻿@using OrdersWebApp.Models
+@model Order
+
+<div class="text-center">
+    <p class="fs-1">Orders</p>
+    <a class="btn btn-primary btn-sm" asp-action="CreateOrder">Create new order</a>
+
+    <div class="modal fade" id="inspectModal" tabindex="-1" aria-labelledby="inspectModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " id="inspectModalLabel">Order Info</h5>
+                </div>
+                <div class="modal-body text-start">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("OrderList")
+    
+</div>

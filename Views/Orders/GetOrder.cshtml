@@ -1,0 +1,27 @@
+﻿@using OrdersWebApp.Models
+@model Order
+
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Sender city</label>
+    <p>@Model.SenderCity</p>
+</div>
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Sender address</label>
+    <p>@Model.SenderAddress</p>
+</div>
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Recipient city</label>
+    <p>@Model.RecipientCity</p>
+</div>
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Recipient address</label>
+    <p>@Model.RecipientAddress</p>
+</div>
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Cargo weight, kg</label>
+    <p>@Model.CargoWeight</p>
+</div>
+<div class="form-group mb-2 d-flex justify-content-between">
+    <label class="form-label">Cargo pickup date</label>
+    <p>@Model.CargoPickupDate</p>
+</div>
