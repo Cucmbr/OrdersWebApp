@@ -11,7 +11,7 @@
             <th>Recipient Address</th>
             <th>Cargo Weight, kg</th>
             <th>Cargo Pickup Date</th>
-            <th>Action</th>
+            @* <th>Action</th> *@
         </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
                         <td>@item.RecipientAddress</td>
                         <td>@item.CargoWeight</td>
                         <td>@item.CargoPickupDate</td>
-                        <td><a asp-action="DeleteOrder" asp-route-id="@item.Id">Delete</a></td>
+                        @*<td><a asp-action="DeleteOrder" asp-route-id="@item.Id">Delete</a></td>*@
                     </tr>
                 }
         }
