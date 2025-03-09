@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OrdersWebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class OrderDbInitMigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,13 +15,13 @@ namespace OrdersWebApp.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    SenderCity = table.Column<string>(type: "text", nullable: false),
-                    SenderAddress = table.Column<string>(type: "text", nullable: false),
-                    RecipientCity = table.Column<string>(type: "text", nullable: false),
-                    RecipientAddress = table.Column<string>(type: "text", nullable: false),
-                    CargoWeight = table.Column<float>(type: "real", nullable: false),
-                    CargoPickupDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    SenderCity = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false),
+                    SenderAddress = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    RecipientCity = table.Column<string>(type: "TEXT", maxLength: 25, nullable: false),
+                    RecipientAddress = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false),
+                    CargoWeight = table.Column<float>(type: "REAL", nullable: false),
+                    CargoPickupDate = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

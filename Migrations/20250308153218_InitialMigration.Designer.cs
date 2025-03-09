@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using OrdersWebApp.Data;
 
 #nullable disable
@@ -12,46 +11,46 @@ using OrdersWebApp.Data;
 namespace OrdersWebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250305162903_OrderDbInitMigration")]
-    partial class OrderDbInitMigration
+    [Migration("20250308153218_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("OrdersWebApp.Entities.Order", b =>
+            modelBuilder.Entity("OrdersWebApp.Models.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CargoPickupDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("CargoPickupDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<float>("CargoWeight")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<string>("RecipientAddress")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(60)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("RecipientCity")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(25)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SenderAddress")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(60)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SenderCity")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(25)
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

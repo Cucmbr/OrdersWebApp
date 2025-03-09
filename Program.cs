@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql("Host=localhost;Port=5432;Database=OrderDB;Username=postgres;Password=admin"));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(builder.Configuration.GetConnectionString("SQlite")));
 
 builder.Services.AddScoped<IOrderRepo, OrderRepo>();
 
